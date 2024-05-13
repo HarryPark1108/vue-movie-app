@@ -1,2 +1,17 @@
+# Netlify Dev
+# https://cli.netlify.com/netlify-dev/#netlifytoml-dev-block
+
+# 제품 모드
 [build]
+  command = "npm run build"
   functions = "functions"
+  publish = "dist"
+
+# 개발 모드
+[dev]
+  framework = "#custom"
+  command = "npm run serve"
+  targetPort = 8080
+  port = 8888
+  publish = "dist"
+  autoLaunch = false
