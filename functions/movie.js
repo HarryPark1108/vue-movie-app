@@ -1,4 +1,5 @@
 const axios = require("axios") // node.js 환경에서 동작하는 경우
+const OMDB_API_KEY = process.env.VUE_APP_OMDB_API_KEY
 
 // store의 movie.js의 _fetchMovie 함수를
 // netlify의 Serverless 함수에서 동작하도록 구성
@@ -6,7 +7,7 @@ exports.handler = async function(event) {
     console.log(event)
     const payload = JSON.parse(event.body)
     const { title, type, year, page, id } = payload
-    const OMDB_API_KEY = 'f88998d5'
+    // const OMDB_API_KEY = 'f88998d5'
     const url = id 
         ? `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}`
         : `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
